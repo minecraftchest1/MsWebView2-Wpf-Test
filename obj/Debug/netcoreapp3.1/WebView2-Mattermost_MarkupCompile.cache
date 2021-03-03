@@ -1,20 +1,20 @@
 ﻿WebView2-Mattermost
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\Wyatt\src\Cs\WebView2-Mattermost\obj\Debug\netcoreapp3.1\
+c:\Users\Wyatt\src\Cs\WebView2-Mattermost\obj\Debug\netcoreapp3.1\
 WebView2_Mattermost
 none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-C:\Users\Wyatt\src\Cs\WebView2-Mattermost\App.xaml
-145029153
-3570554132
-3-1522789984
-195147917126
+c:\Users\Wyatt\src\Cs\WebView2-Mattermost\App.xaml
+1219584333
+32131114680
+5-1115118723
+195-496022847
 MainWindow.xaml;
 
-False
+True
 
