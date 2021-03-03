@@ -46,8 +46,29 @@
                 <wv2:WebView2 Name="webView3"
                     Source="https://bing.com"
                     NavigationStarting="webView_NavigationStarting"
-                />
-                
+                />   
+            </DockPanel>
+        </TabItem>       
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock>
+                    GoogleCalendar
+                </TextBlock>
+            </TabItem.Header>
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <Button x:Name="ButtonGoGC"
+                        DockPanel.Dock="Right"
+                        Click="ButtonGoGC_Click"
+                        Content="Go"
+                    />
+                    <TextBox Name="addressBarGC" DockPanel.Dock="Top" PreviewKeyDown="addressBarGC_PreviewKeyDown">
+                    </TextBox>
+                </DockPanel>
+                <wv2:WebView2 Name="webViewGoogleCalendar"
+                    Source="https://calendar.google.com"
+                    NavigationStarting="webViewGC_NavigationStarting"
+                />   
             </DockPanel>
         </TabItem>
     </TabControl>

@@ -60,6 +60,47 @@ namespace WebView2_Mattermost
             }
         }
 
+
+        private void ButtonGoGC_Click(object sender, RoutedEventArgs e)
+        {
+            webViewGC_NavigateTo();
+        }
+        private void webViewGC_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs args)
+        {
+            String uri = args.Uri;
+            addressBarGC.Text = uri;
+        }
+
+         private void addressBarGC_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                webViewGC_NavigateTo();
+            }
+            if (e.Key == Key.Enter)
+            {
+             webViewGC_NavigateTo();
+            }
+        }
+
+        private void webViewGC_NavigateTo()
+        {
+            try
+            {
+                if (webViewGoogleCalendar != null && webViewGoogleCalendar.CoreWebView2 != null)
+                {
+                    webViewGoogleCalendar.CoreWebView2.Navigate(addressBarGC.Text);
+                }
+            }
+            catch (ArgumentException)
+            {
+                if (webViewGoogleCalendar != null && webViewGoogleCalendar.CoreWebView2 != null)
+                {
+                    webViewGoogleCalendar.CoreWebView2.Navigate("https://" + addressBarGC.Text);
+                }
+            }
+        }
+
         private void webView_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs args)
         {
             String uri = args.Uri;
