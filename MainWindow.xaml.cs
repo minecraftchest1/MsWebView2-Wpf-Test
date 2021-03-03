@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Web.WebView2.Core;
 
 namespace WebView2_Mattermost
 {
@@ -23,6 +24,46 @@ namespace WebView2_Mattermost
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void ButtonGo_Click(object sender, RoutedEventArgs e)
+        {
+            webView_NavigateTo();
+        }
+
+        private void addressBar_PreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                webView_NavigateTo();
+            }
+            if (e.Key == Key.Enter)
+            {
+             webView_NavigateTo();
+            }
+        }
+
+        private void webView_NavigateTo()
+        {
+            try
+            {
+                if (webView3 != null && webView3.CoreWebView2 != null)
+                {
+                    webView3.CoreWebView2.Navigate(addressBar.Text);
+                }
+            }
+            catch (ArgumentException)
+            {
+                if (webView3 != null && webView3.CoreWebView2 != null)
+                {
+                    webView3.CoreWebView2.Navigate("https://" + addressBar.Text);
+                }
+            }
+        }
+
+        private void webView_NavigationStarting(object sender, CoreWebView2NavigationStartingEventArgs args)
+        {
+            String uri = args.Uri;
+            addressBar.Text = uri;
         }
     }
 }

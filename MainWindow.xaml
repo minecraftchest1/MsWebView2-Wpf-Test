@@ -17,7 +17,7 @@
               Source="https://chat.reactos.org"
             />
         </TabItem>
-        <TabItem>
+       <TabItem>
             <TabItem.Header>
                 <TextBlock>
                     NotifactionTest
@@ -26,6 +26,29 @@
             <wv2:WebView2 Name="webView2"
               Source="https://minecraftchest1.github.io/NotifactionTest.html"
             />
+        </TabItem>
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock>
+                    Generic
+                </TextBlock>
+            </TabItem.Header>
+            <DockPanel>
+                <DockPanel DockPanel.Dock="Top">
+                    <Button x:Name="ButtonGo"
+                        DockPanel.Dock="Right"
+                        Click="ButtonGo_Click"
+                        Content="Go"
+                    />
+                    <TextBox Name="addressBar" DockPanel.Dock="Top" PreviewKeyDown="addressBar_PreviewKeyDown">
+                    </TextBox>
+                </DockPanel>
+                <wv2:WebView2 Name="webView3"
+                    Source="https://bing.com"
+                    NavigationStarting="webView_NavigationStarting"
+                />
+                
+            </DockPanel>
         </TabItem>
     </TabControl>
 </DockPanel>
