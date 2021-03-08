@@ -1,3 +1,9 @@
 /bin
+/obj
 /obj/Debug
 /obj/Release
+/obj/project.assets.json
+/obj/project.nuget.cache
+/obj/WebView2-Mattermost.csproj.nuget.dgspec.json
+/obj/WebView2-Mattermost.csproj.nuget.g.props
+/obj/WebView2-Mattermost.csproj.nuget.g.targets

@@ -24,6 +24,13 @@ namespace WebView2_Mattermost
         public MainWindow()
         {
             InitializeComponent();
+            //webView2.CoreWebView2.PermissionRequested += webView_PermissionRequested;
+        }
+
+        private void webView_PermissionRequested(object sender, CoreWebView2PermissionRequestedEventArgs args)
+        {
+            //MessageBox.Show(args.Uri + " requested permission " + args.PermissionKind, "Permission Requested", MessageBoxButton.YesNo, MessageBoxImage.None);
+            args.State=CoreWebView2PermissionState.Allow;
         }
         private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {
@@ -105,6 +112,15 @@ namespace WebView2_Mattermost
         {
             String uri = args.Uri;
             addressBar.Text = uri;
+        }
+
+        private void webView_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs args)
+        {
+            //String[] Args = args.
+            //webView3.CoreWebView2.ExecuteScriptAsync($"alert('Navigation Completed. {Args}')");
+            //webView3.CoreWebView2.DocumentTitle;
+            //this.Title = webView3.CoreWebView2.DocumentTitle;
+            tabGeneric.Text = webView3.CoreWebView2.DocumentTitle;
         }
     }
 }

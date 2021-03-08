@@ -6,7 +6,8 @@
         xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
         xmlns:local="clr-namespace:WebView2_Mattermost"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        >
     <DockPanel>
     <TabControl>
         <TabItem>
@@ -29,7 +30,9 @@
         </TabItem>
         <TabItem>
             <TabItem.Header>
-                <TextBlock>
+                <TextBlock
+                x:Name="tabGeneric"
+                >
                     Generic
                 </TextBlock>
             </TabItem.Header>
@@ -46,6 +49,7 @@
                 <wv2:WebView2 Name="webView3"
                     Source="https://bing.com"
                     NavigationStarting="webView_NavigationStarting"
+                    NavigationCompleted="webView_NavigationCompleted"
                 />   
             </DockPanel>
         </TabItem>       
