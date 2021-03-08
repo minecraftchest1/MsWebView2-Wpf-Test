@@ -31,6 +31,7 @@ namespace WebView2_Mattermost
         {
             //MessageBox.Show(args.Uri + " requested permission " + args.PermissionKind, "Permission Requested", MessageBoxButton.YesNo, MessageBoxImage.None);
             args.State=CoreWebView2PermissionState.Allow;
+            MessageBox.Show("Permission " + args.PermissionKind + " Requested by " + args.Uri + ".", "Permission Requested.", MessageBoxButton.OK, MessageBoxImage.Information);
         }
         private void ButtonGo_Click(object sender, RoutedEventArgs e)
         {
